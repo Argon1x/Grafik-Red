@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:GrafikRed"
+        x:Class="GrafikRed.MainWindow"
+        Title="Графический редактор"
+        Width="1050" Height="680"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Spacing="6" Margin="8" Background="#F0F0F0">
+            <Button Name="PencilButton" Content="Карандаш" />
+            <Button Name="LineButton" Content="Линия" />
+            <Button Name="RectangleButton" Content="Прямоугольник" />
+            <Button Name="EllipseButton" Content="Эллипс" />
+
+            <Border Width="1" Background="Gray" Margin="6,4" />
+
+            <ComboBox Name="ColorComboBox" SelectedIndex="0" VerticalAlignment="Center">
+                <ComboBoxItem Content="Черный" Tag="Black" />
+                <ComboBoxItem Content="Красный" Tag="Red" />
+                <ComboBoxItem Content="Зеленый" Tag="Green" />
+                <ComboBoxItem Content="Синий" Tag="Blue" />
+                <ComboBoxItem Content="Желтый" Tag="Yellow" />
+                <ComboBoxItem Content="Оранжевый" Tag="Orange" />
+            </ComboBox>
+
+            <Border Name="ColorPreviewBorder" Width="26" Height="26" Background="Black" BorderBrush="Gray" BorderThickness="1" VerticalAlignment="Center" Margin="4,0" />
+
+            <Border Width="1" Background="Gray" Margin="6,4" />
+
+            <TextBlock Text="Толщина:" VerticalAlignment="Center" Margin="6,0,4,0" />
+            <NumericUpDown Name="ThicknessInput" Value="2" Minimum="1" Maximum="50" Increment="1" FormatString="0" Width="115" VerticalAlignment="Center" />
+
+            <Border Width="1" Background="Gray" Margin="6,4" />
+
+            <Button Name="ClearButton" Content="Очистить холст" />
+            <Button Name="SaveButton" Content="Сохранить изображение" />
+        </StackPanel>
+
+        <Border BorderBrush="Gray" BorderThickness="1" Margin="8" Background="LightGray">
+            <local:DrawingCanvas Name="Canvas" />
+        </Border>
+    </DockPanel>
+</Window>
